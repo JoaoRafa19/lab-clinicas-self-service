@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
         appBar: LabClinicasAppBar(
           actions: [
             PopupMenuButton(
-              child: IconPopUpMenuWidget(),
+              child: const IconPopUpMenuWidget(),
               itemBuilder: (context) {
                 return [
                   const PopupMenuItem<int>(
@@ -55,7 +55,10 @@ class HomePage extends StatelessWidget {
                   width: sizeOf.width * .8,
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/self-service');
+                      },
                       child: const Text(
                         'INICIAR TERMINAL',
                       )),
