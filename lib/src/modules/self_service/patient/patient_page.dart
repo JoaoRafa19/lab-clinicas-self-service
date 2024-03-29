@@ -305,8 +305,13 @@ class _PatientPageState extends State<PatientPage>
                           final formValid =
                               formKey.currentState?.validate() ?? false;
                           if (formValid) {
-                            controller.updateAndNext(updatePatient(
-                                selfServiceController.model.patient!));
+                            if (patientFound) {
+                              controller.updateAndNext(updatePatient(
+                                  selfServiceController.model.patient!));
+                            } else {
+                              // cadastro
+                              controller.saveAndNext(createPatientRegister());
+                            }
                           }
                         },
                         child: Visibility(

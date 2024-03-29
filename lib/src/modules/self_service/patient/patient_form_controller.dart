@@ -1,5 +1,6 @@
 import 'package:fe_lab_clinicas_self_service/src/model/patient_model.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/patient/patient_page.dart';
+import 'package:fe_lab_clinicas_self_service/src/repositories/patients/patients_repository.dart';
 import 'package:flutter/material.dart';
 
 mixin PatientFormController on State<PatientPage> {
@@ -68,6 +69,26 @@ mixin PatientFormController on State<PatientPage> {
         state: stateEC.text,
         streetAddress: streetEC.text,
       ),
+    );
+  }
+
+  RegisterPatientModel createPatientRegister() {
+    return (
+      name: nameEC.text,
+      email: emailEC.text,
+      document: documentEC.text,
+      address: (
+        addressComplement: complementEC.text,
+        cep: cepEC.text,
+        city: cityEC.text,
+        distric: districtEC.text,
+        number: numberEC.text,
+        state: stateEC.text,
+        streetAddress: streetEC.text
+      ),
+      guardian: guardianEC.text,
+      guardianIdentificationNumber: guardianIdentificationNumberEC.text,
+      phoneNumber: phoneEC.text
     );
   }
 }
