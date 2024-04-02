@@ -4,7 +4,6 @@ import 'package:fe_lab_clinicas_self_service/src/modules/self_service/documents/
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/self_service_controller.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/widget/lab_clinicas_self_service_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class DocumentsPage extends StatefulWidget {
