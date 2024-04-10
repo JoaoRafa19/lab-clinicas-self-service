@@ -1,3 +1,4 @@
+import 'package:asyncstate/asyncstate.dart';
 import 'package:camera/camera.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
@@ -17,9 +18,9 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
 
   @override
   void initState() {
-    cameraController = CameraController(
-        (Injector.get<List<CameraDescription>>().first),
-        ResolutionPreset.ultraHigh);
+    var list = Injector.get<List<CameraDescription>>();
+    cameraController =
+        CameraController((list.first), ResolutionPreset.ultraHigh);
     super.initState();
   }
 
@@ -31,9 +32,10 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
       body: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
+          clipBehavior: Clip.hardEdge,
           child: Container(
             width: sizeOf.width * .85,
-            margin: const EdgeInsets.only(top: 18),
+            margin: const EdgeInsets.only(top: 12),
             padding: const EdgeInsets.all(32),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -91,7 +93,7 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                                   strokeCap: StrokeCap.square,
                                   color: LabClinicasTheme.orangeColor,
                                   radius: const Radius.circular(16),
-                                  dashPattern: [1, 10, 1, 3],
+                                  dashPattern: const [1, 10, 1, 3],
                                   child: const SizedBox.expand(),
                                 ),
                               ),
@@ -111,8 +113,14 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                   width: sizeOf.width * .8,
                   height: 48,
                   child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('TIRAR FOTO'),
+                    onPressed: () async {
+                      final nav = Navigator.of(context);
+                      final foto =
+                          await cameraController.takePicture().asyncLoader();
+                      nav.pushNamed('/self-service/documents/scan/confirm',
+                          arguments: foto);
+                    },
+                    child: const Text('TIRAR FOTO'),
                   ),
                 )
               ],
