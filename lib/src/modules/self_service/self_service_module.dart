@@ -1,6 +1,5 @@
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/documents/documents_page.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/documents/scan/documents_scan_page.dart';
-import 'package:fe_lab_clinicas_self_service/src/modules/self_service/documents/scan_confirm/documents_scan_confirm.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/documents/scan_confirm/documents_scan_confirm_router.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/done/done_page.dart';
 import 'package:fe_lab_clinicas_self_service/src/modules/self_service/find_patient/find_patient_router.dart';

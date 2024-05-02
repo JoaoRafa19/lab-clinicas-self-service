@@ -3,8 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'patient_address_mode.g.dart';
 
 @JsonSerializable()
-class PatientAddressMode {
-  PatientAddressMode({
+class PatientAddressModel {
+  PatientAddressModel({
     required this.cep,
     required this.state,
     required this.city,
@@ -25,12 +25,12 @@ class PatientAddressMode {
 
   @JsonKey(name: 'street_address')
   final String streetAddress;
-  factory PatientAddressMode.fromJson(Map<String, dynamic> json) =>
+  factory PatientAddressModel.fromJson(Map<String, dynamic> json) =>
       _$PatientAddressModeFromJson(json);
 
   Map<String, dynamic> toJson() => _$PatientAddressModeToJson(this);
 
-  PatientAddressMode copyWith({
+  PatientAddressModel copyWith({
     String? cep,
     String? state,
     String? city,
@@ -39,7 +39,7 @@ class PatientAddressMode {
     String? addressComplement,
     String? streetAddress,
   }) {
-    return PatientAddressMode(
+    return PatientAddressModel(
       cep: cep ?? this.cep,
       state: state ?? this.state,
       city: city ?? this.city,

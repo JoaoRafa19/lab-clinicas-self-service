@@ -83,8 +83,7 @@ class _DocumentsScanPageState extends State<DocumentsScanPage> {
                           return ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: SizedBox(
-                              width: sizeOf.width * .40,
-                              height: sizeOf.width * .53,
+                              width: sizeOf.width * .5,
                               child: CameraPreview(
                                 cameraController,
                                 child: DottedBorder(
