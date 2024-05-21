@@ -40,12 +40,6 @@ class _FindPatientPageState extends State<FindPatientPage>
   }
 
   @override
-  void dispose() {
-    log("Disposing...", level: 2);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LabClinicasSelfServiceAppBar(),
